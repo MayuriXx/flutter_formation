@@ -1,17 +1,19 @@
 # flutter_formation
 
-A new Flutter project.
+[![Codemagic build status](https://api.codemagic.io/apps/60fc7220be21224d18d5b08a/60fc7220be21224d18d5b089/status_badge.svg)](https://codemagic.io/apps/60fc7220be21224d18d5b08a/60fc7220be21224d18d5b089/latest_build)
 
-## Getting Started
+Project flutter formation from [Udemy](https://www.udemy.com/course-dashboard-redirect/?course_id=3301834)
 
-This project is a starting point for a Flutter application.
+## Information
 
-A few resources to get you started if this is your first Flutter project:
+This project it's a simple app :
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Login page
+- List of diffrent course page
+- Info of course page
+- Opinion page
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# flutter_formation
+Link : http://evanmag.cluster028.hosting.ovh.net/#/
+
+
+

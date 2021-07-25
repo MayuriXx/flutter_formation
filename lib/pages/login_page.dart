@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_formation/pages/ListPage.dart';
+import 'package:flutter_formation/pages/list_page.dart';
 
 class LoginPage extends StatelessWidget {
   String mail = "";
@@ -13,24 +13,30 @@ class LoginPage extends StatelessWidget {
         title: Text("Page de login"),
         centerTitle: true,
       ),
-      body: Container(
-        child: Column(
-          children: [
-            _buildHeader(),
-            SizedBox(
-              height: 15,
-            ),
-            _buildTitle(),
-            _buildForm(context),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              _buildHeader(context),
+              SizedBox(
+                height: 15,
+              ),
+              _buildTitle(),
+              _buildForm(context),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Container(
-      child: Image.asset('assets/images/header_login_page.jpeg'),
+      child: Image.asset(
+        'assets/images/header_login_page.jpeg',
+        // height: MediaQuery.of(context).size.height * 0.5,
+        // width: MediaQuery.of(context).size.width * 3.5),
+      ),
     );
   }
 

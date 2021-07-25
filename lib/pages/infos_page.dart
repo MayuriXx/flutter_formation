@@ -1,43 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_formation/model/Cours.dart';
+import 'package:flutter_formation/model/course.dart';
 
 class InfoPage extends StatefulWidget {
-  final Cours cours;
+  final Course course;
 
-  InfoPage({Key? key, required this.cours}) : super(key: key);
+  InfoPage({Key? key, required this.course}) : super(key: key);
   @override
   _InfoPageState createState() => _InfoPageState();
 }
 
 class _InfoPageState extends State<InfoPage> {
   int selectedTab = 0;
-  final List<String> avis = ["Super Cours", "Top", "Nul"];
+  final List<String> avis = ["Super Course", "Top", "Nul"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Détails du cours"),
+        title: Text("Détails du course"),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          children: [
-            _buildHeader(),
-            SizedBox(
-              height: 15,
-            ),
-            _buildInfos(),
-            SizedBox(
-              height: 15,
-            ),
-            _buildBtn(),
-            Expanded(
-              child: SizedBox(
-                height: 200,
-                child: _buildAvis(),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: 1000,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _buildHeader(),
+              SizedBox(
+                height: 15,
               ),
-            ),
-          ],
+              _buildInfos(),
+              SizedBox(
+                height: 15,
+              ),
+              _buildBtn(),
+              Expanded(
+                child: SizedBox(
+                  height: 200,
+                  child: _buildAvis(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -58,7 +62,7 @@ class _InfoPageState extends State<InfoPage> {
 
   _buildHeader() {
     return Container(
-      child: Image.asset(widget.cours.image ?? "/"),
+      child: Image.asset(widget.course.image ?? "/"),
     );
   }
 
@@ -70,14 +74,14 @@ class _InfoPageState extends State<InfoPage> {
           child: Column(
             children: [
               Text(
-                widget.cours.name ?? "no name",
+                widget.course.name ?? "no name",
                 style: TextStyle(fontSize: 26),
               ),
               SizedBox(
                 height: 15,
               ),
               Text(
-                widget.cours.description ?? "no description",
+                widget.course.description ?? "no description",
                 textAlign: TextAlign.justify,
               ),
               SizedBox(
@@ -87,7 +91,7 @@ class _InfoPageState extends State<InfoPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                      "${widget.cours.price ?? 'no price'} - ${widget.cours.note ?? 'no note'}"),
+                      "${widget.course.price ?? 'no price'} - ${widget.course.note ?? 'no note'}"),
                   Icon(
                     Icons.star,
                     size: 18.0,
@@ -137,6 +141,7 @@ class _InfoPageState extends State<InfoPage> {
   _buildAvis() {
     if (selectedTab == 1) {
       return ListView.separated(
+        shrinkWrap: true,
         itemCount: avis.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(

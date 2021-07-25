@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_formation/model/Cours.dart';
-import 'package:flutter_formation/pages/InfosPage.dart';
+import 'package:flutter_formation/model/course.dart';
+import 'package:flutter_formation/pages/infos_page.dart';
 
-final cours = List<Cours>.generate(
+final cours = List<Course>.generate(
   10,
-  (i) => Cours(
-    name: "Cours $i",
+  (i) => Course(
+    name: "Course $i",
     description:
         "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsumn $i",
     image: "assets/images/image_list_page.jpeg",
@@ -31,7 +31,7 @@ class _ListPageState extends State<ListPage> {
       ),
       body: ListView.separated(
           itemBuilder: (BuildContext context, int index) {
-            Cours crs = Cours(
+            Course crs = Course(
               name: cours[index].name,
               description: cours[index].description,
               image: cours[index].image,
@@ -45,7 +45,7 @@ class _ListPageState extends State<ListPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => InfoPage(cours: crs),
+                      builder: (context) => InfoPage(course: crs),
                     ),
                   );
                 },
